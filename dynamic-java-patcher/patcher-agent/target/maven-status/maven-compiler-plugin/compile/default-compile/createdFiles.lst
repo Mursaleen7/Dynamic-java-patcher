@@ -1,0 +1,12 @@
+com/example/patcher/agent/api/ApiServer.class
+com/example/patcher/agent/PatchEntry.class
+com/example/patcher/agent/features/SecurityPatchAdvice$HttpSanitizer.class
+com/example/patcher/agent/PatchManifest.class
+com/example/patcher/agent/features/SecurityPatchAdvice$SqlSanitizer.class
+com/example/patcher/agent/api/ApiServer$1.class
+com/example/patcher/agent/PatcherAgent.class
+com/example/patcher/agent/features/SecurityPatchAdvice$HtmlEscaper.class
+com/example/patcher/agent/features/SecurityPatchAdvice.class
+com/example/patcher/agent/features/DeprecationRescueAdvice.class
+com/example/patcher/agent/features/ProfilerAdvice.class
+com/example/patcher/agent/features/SecurityPatchAdvice$HttpArraySanitizer.class

@@ -1,0 +1,9 @@
+com/example/patcher/recipes/StringConcatenationToStringBuilder$StringConcatReplacer.class
+com/example/patcher/recipes/StringConcatenationToStringBuilder.class
+com/example/patcher/recipes/StringConcatenationToStringBuilder$StringConcatFinder.class
+com/example/patcher/recipes/CacheCompiledPattern.class
+com/example/patcher/recipes/CacheCompiledPattern$PatternCollector.class
+com/example/patcher/recipes/CacheCompiledPattern$CacheCompiledPatternVisitor.class
+com/example/patcher/recipes/CacheCompiledPattern$PatternInfo.class
+com/example/patcher/recipes/StringConcatenationToStringBuilder$StringConcatenationVisitor.class
+com/example/patcher/recipes/StringConcatenationToStringBuilder$StringConcatInfo.class
