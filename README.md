@@ -1,148 +1,84 @@
-# Dynamic Java Patcher
+# Dynamic Java Patcher Frontend
 
-A toolkit for patching Java applications at runtime, with both runtime patching (ByteBuddy) and build-time fix integration (OpenRewrite).
+A modern React TypeScript frontend for the Dynamic Java Patcher project. This interface allows users to view and interact with runtime patches, monitor performance data, and configure the Java patcher settings.
 
 ## Features
 
-- **Dynamic Patching**: Apply bytecode patches to running applications without restart
-- **HTTP/File System Patch Delivery**: Fetch patches from a remote server or local file system
-- **Patch Versioning**: Track and apply patches in order with versioning
-- **SpeedDoctor**: Runtime performance, security and API compatibility features
+- **Patch Management**: View available patches, apply them to your application, and track their status
+- **Code Change Visualization**: See before and after code changes for each patch
+- **Real-time Notifications**: Get notified when patches are applied or when code changes occur
+- **Performance Monitoring**: View performance hotspots identified by the profiler
+- **Settings Configuration**: Configure monitored packages and feature settings
 
-## SpeedDoctor Features
+## Getting Started
 
-The SpeedDoctor components provide three powerful features:
+### Prerequisites
 
-### 1. Real-Time Lightweight Profiler
+- Node.js 16+ and npm/yarn
+- Dynamic Java Patcher backend running (see main project README)
 
-Identifies performance hotspots in your application with minimal overhead (<1%).
+### Installation
 
-- Collects timing data for method execution
-- Logs slow methods and generates reports
-- Produces CSV output that can be used by OpenRewrite recipes to target optimizations
+1. Install dependencies:
 
-### 2. Instant Deprecation Rescue
-
-Provides runtime fallbacks for deprecated APIs, allowing safe dependency upgrades without breaking changes.
-
-- Intercepts calls to deprecated methods and redirects to newer alternatives
-- Works alongside OpenRewrite recipes that permanently update the code
-- Configurable through JSON files to add new deprecation mappings
-
-### 3. Zero-Downtime Security Patches
-
-Adds runtime sanitization to vulnerable methods to prevent security issues until permanent fixes can be applied.
-
-- Protects against SQL injection, XSS, path traversal, and more
-- Works alongside OpenRewrite recipes that permanently secure the code
-- Configurable through JSON files to add new security patterns
-
-## Configuration
-
-### Basic Configuration
-
-The SpeedDoctor features can be enabled/disabled using system properties:
-
-```
--Dspeeddoctor.profiler=true|false (default: true)
--Dspeeddoctor.deprecationrescue=true|false (default: true)
--Dspeeddoctor.securitypatches=true|false (default: true)
+```sh
+npm install
+# or
+yarn install
 ```
 
-### Advanced Configuration
-
-Additional configuration options:
+2. Create a `.env` file in the frontend directory with the following configuration:
 
 ```
-# Profiler configuration
--Dspeeddoctor.profiler.packages=com.example,org.springframework
-  Comma-separated list of packages to profile
-  (default: com.example,org.springframework,com.company)
-
-# Deprecation rescue configuration
--Dspeeddoctor.deprecation.config=path/to/deprecation-mappings.json
-  Path to JSON file with deprecation mappings
-  (default: config/deprecation-mappings.json)
-
-# Security patches configuration  
--Dspeeddoctor.security.patterns=path/to/security-patterns.json
-  Path to JSON file with security patterns
-  (default: config/security-patterns.json)
+REACT_APP_API_URL=http://localhost:8080/api
+REACT_APP_WS_URL=ws://localhost:8080/ws
 ```
 
-### Configuration File Formats
+Adjust the URLs as needed to point to your Java backend server.
 
-#### Deprecation Mappings (JSON)
+### Development
 
-```json
-{
-  "legacy.MathUtil": {
-    "sum": "java.lang.Math#addExact",
-    "multiply": "java.lang.Math#multiplyExact"
-  },
-  "legacy.FileUtils": {
-    "deleteFile": "java.nio.file.Files#deleteIfExists"
-    }
-}
+Start the development server:
+
+```sh
+npm start
+# or
+yarn start
 ```
 
-#### Security Patterns (JSON)
+The application will be available at http://localhost:3000.
 
-```json
-{
-  "SQL_INJECTION": "(?i)('\\s*or\\s*'\\s*=\\s*')|('\\s*or\\s*1\\s*=\\s*1)|...",
-  "XSS": "<script>|<\\/script>|javascript:|...",
-  "PATH_TRAVERSAL": "\\.\\.(\\/|\\\\)|...",
-  "COMMAND_INJECTION": ";\\s*(ls|dir|cat|...)"
-}
+### Building for Production
+
+Build the production-ready application:
+
+```sh
+npm run build
+# or
+yarn build
 ```
 
-## Build and Run
+The build output will be in the `build` directory, which can be served by any static file server.
 
-Build the project:
+## Project Structure
 
-```shell
-mvn clean package
-```
+- `src/components/` - React components
+- `src/services/` - API and WebSocket services
+- `src/types/` - TypeScript type definitions
+- `src/App.tsx` - Main application component
+- `src/index.tsx` - Application entry point
 
-Run with the agent:
+## Integration with Java Backend
 
-```shell
-java -javaagent:patcher-agent/target/patcher-agent-1.0-SNAPSHOT.jar -jar your-application.jar
-```
+This frontend is designed to work with the Dynamic Java Patcher backend. It communicates with the backend through:
 
-## Using OpenRewrite Recipes
+1. **REST API** - For fetching and manipulating patches, settings, and performance data
+2. **WebSocket** - For real-time notifications about patch application and code changes
 
-The project includes several OpenRewrite recipes for permanent fixes:
+## Contributing
 
-- `HotspotRecipe`: Optimizes classes identified as hotspots by the profiler
-- `ApiModernizationRecipe`: Updates deprecated API calls to their modern equivalents
-- `SecurityPatchRecipe`: Adds sanitization to methods vulnerable to security attacks
-
-Add to your Maven build:
-
-```xml
-<plugin>
-  <groupId>org.openrewrite.maven</groupId>
-  <artifactId>rewrite-maven-plugin</artifactId>
-  <version>4.46.0</version>
-  <configuration>
-    <activeRecipes>
-      <recipe>com.example.patcher.recipes.speeddoctor.HotspotRecipe</recipe>
-      <recipe>com.example.patcher.recipes.speeddoctor.ApiModernizationRecipe</recipe>
-      <recipe>com.example.patcher.recipes.speeddoctor.SecurityPatchRecipe</recipe>
-    </activeRecipes>
-  </configuration>
-  <dependencies>
-    <dependency>
-      <groupId>com.example.patcher</groupId>
-      <artifactId>rewrite-recipes</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
-</plugin>
-```
+Feel free to submit issues or pull requests to improve the frontend.
 
 ## License
 
-See the LICENSE file for details. 
+See the LICENSE file in the main project repository for details. 
