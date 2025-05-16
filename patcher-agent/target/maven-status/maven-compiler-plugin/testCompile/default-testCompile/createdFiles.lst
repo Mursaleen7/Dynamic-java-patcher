@@ -1,0 +1,3 @@
+com/example/patcher/agent/features/ConfigTest$TestFeatureTransformer.class
+com/example/patcher/agent/features/ConfigTest$MockInstrumentation.class
+com/example/patcher/agent/features/ConfigTest.class

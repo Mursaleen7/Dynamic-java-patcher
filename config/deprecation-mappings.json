@@ -1,0 +1,22 @@
+{
+  "legacy.MathUtil": {
+    "sum": "java.lang.Math#addExact",
+    "multiply": "java.lang.Math#multiplyExact",
+    "subtract": "java.lang.Math#subtractExact"
+  },
+  "legacy.FileUtils": {
+    "deleteFile": "java.nio.file.Files#deleteIfExists",
+    "createFolder": "java.nio.file.Files#createDirectories"
+  },
+  "legacy.WebUtils": {
+    "encodeUrl": "java.net.URLEncoder#encode",
+    "decodeUrl": "java.net.URLDecoder#decode"
+  },
+  "legacy.StringUtils": {
+    "isEmpty": "java.util.Objects#isNull",
+    "isNotEmpty": "java.util.Objects#nonNull"
+  },
+  "LegacyClass": {
+    "oldMethod": "ModernClass#newMethod"
+  }
+} 

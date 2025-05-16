@@ -1,0 +1,14 @@
+com/example/patcher/agent/PatchEntry.class
+com/example/patcher/agent/features/SecurityPatchAdvice$HttpSanitizer.class
+com/example/patcher/agent/PatchManifest.class
+com/example/patcher/agent/features/package-info.class
+com/example/patcher/agent/PatcherAgent.class
+com/example/patcher/agent/features/SecurityPatchAdvice.class
+com/example/patcher/agent/features/FeatureTransformer$1.class
+com/example/patcher/agent/features/FeatureTransformer$2.class
+com/example/patcher/agent/features/SecurityPatchAdvice$SqlSanitizer.class
+com/example/patcher/agent/features/SecurityPatchAdvice$HtmlEscaper.class
+com/example/patcher/agent/features/FeatureTransformer.class
+com/example/patcher/agent/features/DeprecationRescueAdvice.class
+com/example/patcher/agent/features/ProfilerAdvice.class
+com/example/patcher/agent/features/SecurityPatchAdvice$HttpArraySanitizer.class

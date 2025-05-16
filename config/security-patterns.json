@@ -1,0 +1,8 @@
+{
+  "SQL_INJECTION": "(?i)('\\s*or\\s*'\\s*=\\s*')|('\\s*or\\s*1\\s*=\\s*1)|(;\\s*drop\\s+table)|(;\\s*delete\\s+from)|(--\\s*$)",
+  "XSS": "<script>|<\\/script>|javascript:|onerror=|onclick=|onload=",
+  "PATH_TRAVERSAL": "\\.\\.(\\/|\\\\)|(\\/|\\\\)\\.\\.(\\/|\\\\)",
+  "COMMAND_INJECTION": ";\\s*(ls|dir|cat|type|more|less|tail|head|cp|mv|rm|rmdir|mkdir|chmod|chown|wget|curl|telnet|nc|netcat|bash|sh|csh|ksh|zsh|exec|system)\\s",
+  "OPEN_REDIRECT": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)",
+  "XXE": "<!ENTITY|<!DOCTYPE|<!ELEMENT"
+} 
