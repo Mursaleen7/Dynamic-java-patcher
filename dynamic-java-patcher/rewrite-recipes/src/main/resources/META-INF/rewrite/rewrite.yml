@@ -1,7 +1,0 @@
-type: specs.openrewrite.org/v1beta/recipe
-name: com.example.patcher.StringPerformanceRecipes
-displayName: String Performance Optimization Recipes
-description: Recipes to improve string manipulation performance
-recipeList:
-  - com.example.patcher.recipes.StringConcatenationToStringBuilder
-  - com.example.patcher.recipes.CacheCompiledPattern 
